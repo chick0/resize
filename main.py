@@ -2,7 +2,12 @@ from os import mkdir
 from os import listdir
 from os.path import join
 from os.path import exists
-from PIL import Image
+try:
+    from PIL import Image
+except ImportError:
+    from sys import exit
+    print("** You need to install 'Pillow' to use this script. **")
+    exit(-1)
 
 INPUT = join(".", "input")
 OUTPUT = join(".", "output")
